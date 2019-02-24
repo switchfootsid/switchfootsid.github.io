@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Lagrange
 
 Lagrange is a minimalist Jekyll theme for running a personal blog or site for free through [Github Pages](https://pages.github.com/), or on your own server. Everything that you will ever need to know about this Jekyll theme is included in the README below, which you can also find in [the demo site](https://lenpaul.github.io/Lagrange/).
@@ -278,3 +279,7 @@ This theme is completely free and open source software. You may use it however y
 ## License
 
 Open sourced under the [MIT license](https://github.com/LeNPaul/Lagrange/blob/gh-pages/LICENSE.md).
+=======
+# switchfootsid.github.io
+My personal blog
+>>>>>>> f4b1e18ef9615e574777f38ef684e58c4c802722
