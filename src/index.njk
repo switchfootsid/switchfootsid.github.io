@@ -18,8 +18,8 @@ nav: home
   <aside>
     {% if files.photo %}
       <img class="photo" src="{{ files.photo }}" alt="Portrait of {{ site.name }}" width="400" height="500">
-    {% else %}
-      <div class="photo photo-empty" role="img" aria-label="Portrait placeholder">{% if not isLive %}Add src/assets/photo.jpg{% endif %}</div>
+    {% elif not isLive %}
+      <div class="photo photo-empty" role="img" aria-label="Portrait placeholder">Add src/assets/photo.jpg</div>
     {% endif %}
   </aside>
 </section>
