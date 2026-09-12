@@ -1,0 +1,91 @@
+---
+layout: base.njk
+nav: home
+---
+<section class="hero">
+  <div>
+    <h1>{% for line in home.headline %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</h1>
+    <div class="serif">
+      {% for p in home.intro %}<p>{{ p | inline | safe }}</p>{% endfor %}
+    </div>
+    <div class="links">
+      {% if site.email %}<a href="mailto:{{ site.email }}">Email</a>{% endif %}
+      {% if site.linkedin %}<a href="{{ site.linkedin }}">LinkedIn</a>{% endif %}
+      {% if files.resume %}<a href="{{ files.resume }}">Résumé (PDF)</a>{% endif %}
+      <a href="/writing/">Writing</a>
+    </div>
+  </div>
+  <aside>
+    {% if files.photo %}
+      <img class="photo" src="{{ files.photo }}" alt="Portrait of {{ site.name }}" width="400" height="500">
+    {% else %}
+      <div class="photo photo-empty" role="img" aria-label="Portrait placeholder">{% if not isLive %}Add src/assets/photo.jpg{% endif %}</div>
+    {% endif %}
+  </aside>
+</section>
+
+{% if home.beliefs.length %}
+<section class="block">
+  <h2 class="sechead">What I believe</h2>
+  <ul class="beliefs">
+    {% for b in home.beliefs %}
+    <li>
+      {% if b.quote %}
+        <blockquote>&ldquo;{{ b.quote }}&rdquo;{% if b.by %} <cite>{{ b.by }}</cite>{% endif %}</blockquote>
+      {% else %}
+        <h3>{{ b.title }}</h3>
+      {% endif %}
+      {% if b.text %}<p>{{ b.text | inline | safe }}{% if b.link %} <a class="more" href="{{ b.link }}">Essay&nbsp;&rarr;</a>{% endif %}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if home.path.length %}
+<section class="block">
+  <h2 class="sechead">The path so far</h2>
+  <ol class="path">
+    {% for job in home.path %}
+    <li>
+      <span class="years num">{{ job.years }}</span>
+      <div>
+        <h3>{{ job.org }}{% if job.role %}<span class="role"> · {{ job.role }}</span>{% endif %}</h3>
+        {% if job.did %}<p>{{ job.did | inline | safe }}</p>{% endif %}
+        {% if job.learned %}<p class="learned"><span>Learned:</span> {{ job.learned | inline | safe }}</p>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+<section class="block">
+  <h2 class="sechead">Outside work</h2>
+  <div class="outside">
+    <ul class="interests">
+      {% for i in home.interests %}
+      <li><h3>{{ i.name }}</h3>{% if i.text %}<p>{{ i.text | inline | safe }}</p>{% endif %}</li>
+      {% endfor %}
+    </ul>
+    {% if home.shelf.length %}
+    <div>
+      <h3 class="shelf-h">On my shelf</h3>
+      <ul class="shelf">
+        {% for book in home.shelf %}
+        <li>
+          <div class="cover"><span>{{ book.title }}</span></div>
+          <div class="book-meta"><strong>{{ book.title }}</strong><span>{{ book.author }}</span>{% if book.note %}<em>{{ book.note }}</em>{% endif %}</div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if home.contact %}
+<section class="contact">
+  <p>{{ home.contact | inline | safe }}{% if site.email %} <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}</p>
+</section>
+{% endif %}

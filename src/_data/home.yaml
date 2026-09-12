@@ -1,0 +1,78 @@
+# Everything on the home page. Edit the words freely.
+# Text supports simple markdown: *italics*, **bold**, [link text](https://...)
+# Leave a value empty ("") to hide it.
+
+headline:
+  - I started out building RL agents.
+  - Now I build AI businesses.
+
+intro:
+  - >-
+    I'm Siddharth. I lead ecosystem strategy for open and frontier models at Quantiphi:
+    working out how the newest models become something an enterprise can actually run.
+  - >-
+    I got here the long way: research at IIT Bombay, engineering at Bosch in Germany,
+    years as a solutions architect, then building Quantiphi's NVIDIA business from a blank page.
+    Somewhere along the way I stopped treating engineering and go-to-market as separate jobs.
+    This site is where I think out loud about both.
+
+beliefs:
+  - title: Models are components. Systems are the product.
+    text: >-
+      The hard, valuable work is in compound AI systems: retrieval, tools, evals,
+      and people wired together around a model.
+    link: ""        # add the essay link here and an "Essay" link appears
+
+  - quote: >-
+      In science, if you know what you are doing, you should not be doing it.
+      In engineering, if you do not know what you are doing, you should not be doing it.
+    by: Richard Hamming
+    text: >-
+      I've worked on both sides of that line. Most of my job now is knowing which side a problem is on.
+
+path:
+  - years: 2026–now
+    org: Quantiphi
+    role: Ecosystem Strategy, Open & Frontier Models
+    did: Deciding where we fit as open and frontier models reshape the stack, and which partnerships to bet on.
+    learned: ""
+
+  - years: ""
+    org: Quantiphi
+    role: NVIDIA Business
+    did: Built the company's NVIDIA strategy from scratch and ran its P&L.
+    learned: Owning a P&L turns every decision into a trade-off you can see.
+
+  - years: ""
+    org: Quantiphi
+    role: Solutions Architect
+    did: Designed systems and helped customers buy them.
+    learned: The best architecture is the one a customer can actually adopt.
+
+  - years: ""
+    org: IIT Bombay, CSE
+    role: Research Engineer
+    did: Reinforcement learning agents for energy storage and control, in Prof. Krithi Ramamritham's lab.
+    learned: To stay with a problem I couldn't yet solve.
+
+  - years: ""
+    org: Robert Bosch, Germany
+    role: ""
+    did: ""
+    learned: ""
+
+interests:
+  - name: Muay Thai
+    text: The most honest feedback loop I know. You find out fast what you actually learned.
+  - name: Rock music
+    text: ""
+
+shelf:
+  - title: The Art of Learning
+    author: Josh Waitzkin
+    note: Ties the other two together. Learning is a craft you can practice.
+  - title: The Art of Doing Science and Engineering
+    author: Richard Hamming
+    note: ""
+
+contact: The best way to reach me is email. I'm always up for talking about AI ecosystems, go-to-market, or Muay Thai.

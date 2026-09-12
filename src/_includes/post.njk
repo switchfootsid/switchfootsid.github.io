@@ -1,0 +1,34 @@
+---
+layout: base.njk
+nav: writing
+bodyClass: is-post
+---
+{%- set body = content | withHeadingIds %}
+{%- set sections = content | headings %}
+{%- set minutes = content | readingTime %}
+<div class="post-grid{% if sections.length < 2 %} no-toc{% endif %}">
+  {% if sections.length >= 2 %}
+  <aside class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ol>
+      {% for s in sections %}<li><a href="#{{ s.id }}">{{ s.text }}<span class="track"><span class="fill"></span></span></a></li>{% endfor %}
+    </ol>
+    <div class="left num" id="left" data-minutes="{{ minutes }}"></div>
+  </aside>
+  {% endif %}
+  <article class="post">
+    <a class="back" href="/writing/">&larr; Writing</a>
+    <h1>{{ title }}{% if draft %} <span class="draft">Draft</span>{% endif %}</h1>
+    {% if dek %}<p class="dek">{{ dek }}</p>{% endif %}
+    <div class="byline num">{{ page.date | longDate }} · {{ minutes }} min read{% if topics %} · {{ topics | join(", ") }}{% endif %}</div>
+    <div class="essay" id="essay" data-minutes="{{ minutes }}">
+      {{ body | safe }}
+    </div>
+    {%- set prev = collections.posts | getPreviousCollectionItem %}
+    {%- set next = collections.posts | getNextCollectionItem %}
+    <nav class="post-end">
+      {% if prev %}<a href="{{ prev.url }}"><span>Older</span>{{ prev.data.title }}</a>{% else %}<a href="/writing/"><span>Back to</span>All writing</a>{% endif %}
+      {% if next %}<a class="right" href="{{ next.url }}"><span>Newer</span>{{ next.data.title }}</a>{% endif %}
+    </nav>
+  </article>
+</div>

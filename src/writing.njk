@@ -1,0 +1,44 @@
+---
+layout: base.njk
+nav: writing
+title: Writing
+permalink: /writing/
+---
+{%- set posts = collections.posts | reverse %}
+<div class="pagehead">
+  <h1>Writing</h1>
+  <p>Essays on AI, enterprise go-to-market, and what I'm learning.</p>
+</div>
+
+{% if posts.length %}
+<div class="filters" data-filter="writing" role="group" aria-label="Filter by topic" hidden>
+  <button type="button" data-v="All" aria-pressed="true">All<span class="num">{{ posts.length }}</span></button>
+  {% for t in site.topics %}{% set n = posts | countTopic(t) %}{% if n > 0 %}
+  <button type="button" data-v="{{ t }}" aria-pressed="false">{{ t }}<span class="num">{{ n }}</span></button>
+  {% endif %}{% endfor %}
+</div>
+
+<div class="filter-list" id="writing">
+  {% set lastYear = "" %}
+  {% for post in posts %}
+    {% set y = post.date | year %}
+    {% if y != lastYear %}
+      {% if lastYear %}</ul></div>{% endif %}
+      <div class="group"><div class="year num">{{ y }}</div><ul class="rows">
+      {% set lastYear = y %}
+    {% endif %}
+    <li class="row" data-v="{{ (post.data.topics or []) | join('|') }}">
+      <a href="{{ post.url }}">
+        <time class="num" datetime="{{ post.date | isoDate }}">{{ post.date | shortDate }}</time>
+        <span class="title">{{ post.data.title }}{% if post.data.draft %} <span class="draft">Draft</span>{% endif %}{% if post.data.dek %}<span class="dek">{{ post.data.dek }}</span>{% endif %}</span>
+        <span class="meta">{{ (post.data.topics or []) | join(", ") }}</span>
+        <span class="meta end num">{{ post.content | readingTime }} min</span>
+      </a>
+    </li>
+    {% if loop.last %}</ul></div>{% endif %}
+  {% endfor %}
+  <p class="empty" hidden>Nothing here yet.</p>
+</div>
+{% else %}
+<p class="empty">The first essay is on its way.</p>
+{% endif %}

@@ -1,0 +1,42 @@
+---
+layout: base.njk
+nav: media
+title: Media & Talks
+permalink: /media/
+---
+{%- set items = media | published %}
+<div class="pagehead">
+  <h1>Media &amp; Talks</h1>
+  <p>Talks, panels, podcasts, and interviews.</p>
+</div>
+<p class="media-note">Many of my talks are at private events. Where a recording or transcript is public, it's linked.</p>
+
+{% if items.length %}
+<div class="filters" data-filter="media" role="group" aria-label="Filter by format" hidden>
+  <button type="button" data-v="All" aria-pressed="true">All<span class="num">{{ items.length }}</span></button>
+  {% for g in items | mediaGroups %}
+  <button type="button" data-v="{{ g.name }}" aria-pressed="false">{{ g.name }}<span class="num">{{ g.count }}</span></button>
+  {% endfor %}
+</div>
+
+<div class="filter-list" id="media">
+  <ul class="rows">
+    {% for m in items %}
+    <li class="row" data-v="{{ m.type | mediaGroup }}">
+      <div>
+        <time class="num" datetime="{{ m.date | isoDate }}">{{ m.date | monthYear }}</time>
+        <span class="title">{{ m.title }}{% if m.draft %} <span class="draft">Draft</span>{% endif %}<span class="dek">{{ m.venue }}{% if m.place %}, {{ m.place }}{% endif %}</span></span>
+        <span class="meta">{{ m.type }}</span>
+        <span class="end">
+          {% if m.private %}<span class="private">Private event</span>
+          {% elif m.link %}<a class="act" href="{{ m.link }}">{{ m.action or "Link" }}</a>{% endif %}
+        </span>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  <p class="empty" hidden>Nothing here yet.</p>
+</div>
+{% else %}
+<p class="empty">Talks and interviews will be listed here.</p>
+{% endif %}

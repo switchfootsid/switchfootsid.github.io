@@ -1,0 +1,15 @@
+# Site-wide settings. Leave a value empty ("") to hide it.
+
+name: Siddharth Kotwal
+description: Essays on AI, enterprise go-to-market, and learning.
+url: https://switchfootsid.github.io/
+
+# Contact links shown on the home page
+email: ""        # e.g. hello@yourdomain.com  (this will be public)
+linkedin: ""     # e.g. https://www.linkedin.com/in/your-handle/
+
+# Topics used to filter the Writing page. Posts pick from these.
+topics:
+  - AI
+  - Enterprise GTM
+  - Reading & Learning

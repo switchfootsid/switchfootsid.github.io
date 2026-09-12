@@ -1,0 +1,18 @@
+# Talks, panels, podcasts, and interviews. Newest first.
+#
+# Copy this example, remove the leading "# " from each line, and fill it in:
+#
+# - type: Talk              # Talk, Panel, Podcast, or Interview
+#   title: Your talk title
+#   venue: Conference or show name
+#   place: City             # optional
+#   date: 2026-06-11
+#   link: https://...       # recording, slides, or article
+#   action: Watch           # link label: Watch, Listen, Read, Slides
+#
+# For a private event, leave out link/action and add:
+#   private: true           # shows "Private event" instead of a link
+#
+# Add "draft: true" to see an item in your preview without publishing it.
+
+[]
