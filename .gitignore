@@ -1,4 +1,6 @@
-node_modules/
+# node_modules is a link to node_modules.nosync, which iCloud doesn't sync
+node_modules
+node_modules.nosync
 _site/
 design-directions/
 .DS_Store
