@@ -4,3 +4,7 @@ node_modules.nosync
 _site/
 design-directions/
 .DS_Store
+
+# Private writing space and Substack exports (never published)
+drafts/
+imports/
