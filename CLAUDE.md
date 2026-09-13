@@ -18,6 +18,11 @@ Owner: Siddharth. A product/strategy person, **not a web programmer**. Claude do
 
 `draft: true` on a post or media item keeps it in the local preview only.
 
+`drafts/` (the owner's private writing, usually in Typora) and `imports/` (Substack export zips) are gitignored and never published. `GUIDE.md` is the owner's how-to; keep it accurate when workflows change.
+
+## Importing from Substack
+Substack exports contain `posts.csv` (titles, subtitles, dates, slugs) and `posts/*.html`. For each post the owner picks: convert the HTML body to clean Markdown in `src/posts/YYYY-MM-DD-slug.md` using the original publish date, subtitle as `dek`, one or two `topics` from `site.yaml`, and `draft: true` until the owner approves. Download images to `src/assets/images/<slug>/`. Strip Substack buttons, subscribe widgets, and share links. Show the list and previews before publishing.
+
 ## Design rules (don't drift from these)
 - Quiet, minimal, high contrast. Off-white `#F7F6F2` / near-black `#151412`, one vermilion accent `#D1452A` (dark theme has its own tokens in `site.css`). Light by default with a dark toggle.
 - Archivo for headings and interface; Source Serif 4 for reading text. Modest sizes (page titles ~36px).
